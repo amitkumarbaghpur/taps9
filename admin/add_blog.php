@@ -13,7 +13,7 @@ if(isset($_POST['submit']) && $edit_id!=0)
 }
 if($edit_id!=0)
 {
-    $get_service_info = $taps9->fetch_rows("tbl_blog","where id=$edit_id");
+    $get_blog_info = $taps9->fetch_rows("tbl_blog","where id=$edit_id");
 
     
 } 
@@ -32,7 +32,7 @@ if($edit_id!=0)
 
                         <div class="col-xl-12 mx-auto">
 
-                            <h6 class="mb-0 text-uppercase">Service Form</h6>
+                            <h6 class="mb-0 text-uppercase">Blog Form</h6>
                             <hr/>
                             
                             <div class="card border-top border-0 border-4 border-primary">
@@ -40,7 +40,7 @@ if($edit_id!=0)
                                     <div class="card-title d-flex align-items-center">
                                         <div><i class="fa fa-ticket"></i>
                                         </div>
-                                        <h5 class="mb-0 text-primary">Add Service</h5>
+                                        <h5 class="mb-0 text-primary">Blog Service</h5>
 
                                     </div>
 
@@ -64,7 +64,7 @@ if($edit_id!=0)
             <div class="col-md-12">
                         <div class="form-group">
                             <label>Blog Name *</label>
-                            <input type="text" class="form-control" placeholder="Enter Page" required name="page" id="page" value="<?=$get_service_info['page']?>">
+                            <input type="text" class="form-control" placeholder="Enter Page" required name="page" id="page" value="<?=$get_blog_info['page']?>">
                 
                             <div class="help-block with-errors"></div>
                         </div>
@@ -73,7 +73,7 @@ if($edit_id!=0)
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Blog Title </label>
-                            <input type="text" class="form-control" placeholder="Enter Blog Title" required name="p_title" id="p_title" value="<?=$get_service_info['p_title']?>">
+                            <input type="text" class="form-control" placeholder="Enter Blog Title" required name="p_title" id="p_title" value="<?=$get_blog_info['p_title']?>">
                 
                             <div class="help-block with-errors"></div>
                         </div>
@@ -83,7 +83,7 @@ if($edit_id!=0)
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Blog Description</label>
-                            <input type="text" class="form-control" placeholder="Enter Blog Description" required name="p_description" id="p_description" value="<?=$get_service_info['p_description']?>">
+                            <input type="text" class="form-control" placeholder="Enter Blog Description" required name="p_description" id="p_description" value="<?=$get_blog_info['p_description']?>">
                 
                             <div class="help-block with-errors"></div>
                         </div>
@@ -91,7 +91,7 @@ if($edit_id!=0)
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Blog Keywords</label>
-                            <input type="text" class="form-control" placeholder="Enter Blog Keywords" required name="p_keywords" id="p_keywords" value="<?=$get_service_info['p_keywords']?>">
+                            <input type="text" class="form-control" placeholder="Enter Blog Keywords" required name="p_keywords" id="p_keywords" value="<?=$get_blog_info['p_keywords']?>">
                 
                             <div class="help-block with-errors"></div>
                         </div>
@@ -108,11 +108,11 @@ if($edit_id!=0)
                 <?php
                 if($edit_id!=0)
                 {
-                    if($get_service_info['logo1']!='')
+                    if($get_blog_info['logo1']!='')
                     {
                         ?>
                             <br>
-                        <img src="../images/main_img/<?=$get_service_info['logo1']?>" style="height:100px;width:100px; ">
+                        <img src="../images/main_img/<?=$get_blog_info['logo1']?>" style="height:100px;width:100px; ">
                         
                         <?php
                     }
@@ -131,11 +131,11 @@ if($edit_id!=0)
                 <?php
                 if($edit_id!=0)
                 {
-                    if($get_service_info['image']!='')
+                    if($get_blog_info['image']!='')
                     {
                         ?>
                             <br>
-                        <img src="../images/content/<?=$get_service_info['image']?>" style="height:100px;width:100px; ">
+                        <img src="../images/content/<?=$get_blog_info['image']?>" style="height:100px;width:100px; ">
                         
                         <?php
                     }
@@ -145,7 +145,7 @@ if($edit_id!=0)
                 <div class="col-md-12">
                 <div class="form-group">
                     <label>Short Description</label>
-                    <textarea type="text" class="form-control" placeholder="Enter short Description" id="editorkk" name="short_content"><?=$get_service_info['short_content']?></textarea>
+                    <textarea type="text" class="form-control" placeholder="Enter short Description" id="editorkk" name="short_content"><?=$get_blog_info['short_content']?></textarea>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>   
@@ -153,7 +153,7 @@ if($edit_id!=0)
                 <div class="col-md-12">
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea type="text" class="form-control" placeholder="Enter Description" id="editor" name="content"><?=$get_service_info['content']?></textarea>
+                    <textarea type="text" class="form-control" placeholder="Enter Description" id="editor" name="content"><?=$get_blog_info['content']?></textarea>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>   
