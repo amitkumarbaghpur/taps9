@@ -1,0 +1,606 @@
+/*
+::
+:: Theme Name: Decision - Lawyer & Attorney HTML Template
+:: Email: Nourramadan144@gmail.com
+:: Author URI: https://themeforest.net/user/ar-coder
+:: Author: ar-coder
+:: Version: 1.0
+:: 
+*/
+
+/* :: Medium devices */
+@media (max-width: 991px){
+
+    .cc1 {
+        margin-bottom: 20px;
+    }
+
+    .body{
+        overflow-x: hidden;
+    }
+
+    /* :: Navbar Top */
+    .nav-top .nav-top-box ul li .btn-1{
+        display: none;
+    }
+    
+    /* :: Navbar */
+    .nav-bar .nav-bar-link{
+        display: none;
+    }
+    .nav-bar .box-content{
+        display: block !important;
+    }
+    .nav-bar .logo{
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+    .nav-bar .logo .logo-nav{
+        padding: 16px 0;
+    }
+    .nav-bar .logo .open-nav-bar span{
+        width: 30px;
+        height: 3px;
+        border-radius: 3px;
+        background-color: rgb(0, 0, 0) !important;
+        display: block;
+    }
+    .nav-bar.active .logo .open-nav-bar span{
+        background-color: #ffffff;
+    }
+    .nav-bar .logo .open-nav-bar:hover span,
+    .nav-bar .logo .open-nav-bar.active span{
+        background-color: #C9B38C;
+    }
+    .nav-bar .logo .open-nav-bar span:nth-of-type(2){
+        margin: 5px 0;
+    }
+  .nav-bar .nav-bar-link.active {
+    display: block;
+    border-top: 1px solid rgb(34, 34, 34, 0.1);
+    max-height: 300px;
+    width: 100%;
+    overflow: hidden;
+    left: 0;
+    overflow-y: scroll;
+    -webkit-box-shadow: 0 3px 4px rgba(0,0,0,.07);
+    box-shadow: 0 3px 4px rgba(0,0,0,.07);
+    background-color:#18955e;
+    position: absolute;
+    z-index: 99;
+   }
+    .nav-bar .nav-bar-link > ul > li{
+        display: block;
+    }
+    .nav-bar.active .nav-bar-link ul li a {
+        color: #F1F1F1;
+    }
+    .nav-bar .nav-bar-link ul li a{
+        color: #F1F1F1;
+        margin: 0;
+        padding: 10px;
+    }
+    .nav-bar .nav-bar-link ul li a:before{
+        display: none
+    }
+    .nav-bar .nav-bar-link ul li a.color-active{
+        color: #C9B38C;
+    }
+    .nav-bar .nav-bar-link > ul ul li a{
+        font-weight: 500;
+        width: 100%;
+    }
+    .nav-bar .nav-bar-link ul li.has-menu > a:after{
+        content: '\f107'; 
+        position: absolute;
+        right: 10px;
+        font-size: 12px;
+        width: 25px;
+        height: 25px;
+        background-color: #C9B38C;
+        color: #FFF;
+        text-align: center;
+        border-radius: 3px;
+        font-weight: 900;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    .nav-bar .nav-bar-link ul li.has-menu > a.active:after{
+        -webkit-transform: rotate(-180deg);
+            -ms-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+    }
+    .nav-bar .nav-bar-link > ul ul{
+        -webkit-transform: unset;
+            -ms-transform: unset;
+                transform: unset;
+        opacity: unset;
+        visibility: unset;
+        position: unset;
+        padding: 0;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+        display: none;
+    }
+    .nav-bar .nav-bar-link > ul ul.active{
+        display: block;
+    }
+    .nav-bar .info-nav{
+        display: none;
+    }
+    .nav-bar .icon{
+        display: none;
+    }
+    
+    /* :: Header */
+    .header-2 .box-hero{
+        display: block !important;
+    }
+    .header-2 .box-hero .banner,
+    .header-2 .box-hero .services-header{
+        width: 100%;
+    }
+    .header-2 .box-hero .services-header{
+        margin-top: 50px;
+        text-align: left!important;
+    }
+    .header-2 .box-hero .services-header .line{
+        display: inline-block;
+    }
+    
+    /* :: Features */
+    .features .features-box .features-item{
+        width: 100%;
+    }
+    
+    /* :: About Us */
+    .about .text-box{
+        margin-top: 50px;
+    }
+    .about-2 .text-box,
+    .about-3 .text-box{
+        margin: 0 0 50px 0;
+    }
+    
+    /* :: Skills */
+    .skills{
+        margin-top: 50px;
+    }
+    
+    /* :: Practice Area */
+    .practice-area{
+        background-position: right;
+    }
+    .practice-area-2{
+        background-position: unset;
+    }
+    
+    /* :: Quote */
+    .quote-box{
+        margin-top: 50px;
+    }
+	.quote .box .img-box img{
+		height: 400px;
+		width: 100%;
+	}
+    
+    /* :: Quote */
+    .subscribe {
+        margin-top: 50px;
+    }
+    
+    /* :: Provide */
+    .provide .text-box{
+        padding: 80px 40px;
+    }
+    
+    /* :: Pagination */
+    .pagination-area.one{
+        margin-bottom: 30px;
+    }
+    
+    /* :: Shop */
+    .shop.area .text-box-details .title-product{
+        margin-top: 50px;
+    }
+    
+}
+
+/* :: Small devices */
+@media (max-width: 768px){
+    .body{
+        overflow-x: hidden;
+    }
+    /* :: Navbar Top */
+    .nav-top{
+        display: none;
+    }
+    
+    /* :: Header */
+    .header .banner .handline{
+        font-size: 58px;
+    }
+    .header-2 .box-hero .services-header{
+        display: none !important;
+    }
+    
+    /* :: Provide */
+    .provide .img-box{
+        height: 600px;
+    }
+    .provide .text-box{
+        padding: 80px;
+    }
+    
+    /* :: Presentation */
+    .presentation-box{
+        top: auto;
+        bottom: calc(600px - 30px);
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
+    }
+    .abtitle {
+        margin: 40px 0px 0px 0px;
+        padding: 0px 0px;
+    }
+    .abprog{
+        margin: 0px 0px 50px 0px;
+      }
+      
+}
+
+/* :: Extra small devices */
+@media (max-width: 575px){
+
+
+.button-col a {
+    margin-top: 8px;
+    padding: 7px 9px;
+    font-size:14px;
+    margin-right: 2px;
+}
+
+
+
+
+    body{
+        overflow-x: hidden;
+    }
+    /* :: Header */
+    .header .banner .handline {
+        font-size: 48px;
+    }
+    
+    /* :: Menu Box */
+    .menu-box .inner-menu{
+        width: 100%;
+    }
+    
+    /* :: About Us */
+    .core-about li{
+        float: none;
+        width: 100%;
+    }
+    .about .text-box .p-about{
+        margin-bottom: 16px;
+    }
+    .about .text-box .sign-about{
+        margin-top: 20px;
+    }
+    
+    /* :: Provide */
+    .provide .text-box{
+        padding: 80px 40px;
+    }
+    
+    .page-404-area h2{
+        font-size: 150px;
+    }
+    
+    #ab-btn {
+        display: flex;
+        justify-content: center;
+        width: 71%;
+        margin: auto;
+    }
+
+    .mm h2{
+        color: white;
+        font-size: 17px;
+        text-transform: capitalize;
+      }
+
+      .mma{
+        margin: 10px 0px 30px0px;
+      }
+
+      .arb h2{
+        color: black;
+        margin: 10px 0px 20px 0px;
+        font-size: 22px;
+      }
+
+      .arb p{
+        text-align: justify;
+        margin: 20px 0px 10px 0px;
+        font-size: 16px;
+        line-height: 2;
+      }
+
+      .spp{
+        height: 4px;
+                    background-color: #c70505;
+                    width: 40%;
+                    color: red;
+                    margin: 0px 0px 20px 50px !important;
+                    font-size: 4px;
+                    display: flex;
+      }
+
+      .spp1{
+        height: 4px;
+                    background-color: #c70505;
+                    width: 40%;
+                    color: red;
+                    margin: 0px 0px 20px 12px;
+                    font-size: 4px;
+                    display: flex;
+      }
+
+      .law1 img{
+        max-width: 100% !important;
+        height: 316px !important;
+      }
+
+      .law2 img{
+        max-width: 100%;
+      }
+
+      .enq1 img{
+        max-width: 100%;
+        margin: 0px 0px;
+      }
+
+      .rr span{
+        width: 80px !important;
+      }
+
+      .about-img img{
+        max-width: 100%;
+        border-radius: 0px;
+        height: auto;
+        margin: 0px 0 0 0px;
+      }
+
+      .headline-top{
+        margin: 0px 0px !important;
+        padding: 0px 0px;
+        font-size: 22px !important;
+      }
+
+      .handline{
+        margin: 10px 0 !important;
+        padding: 0px 0px;
+        font-size:22px !important;
+      }
+}
+
+/* :: Dark Mode */
+@media (max-width: 991px){
+    .navi .nav-link {
+        display: block;
+        padding:5px;
+    }
+    .navi {
+        background-color: #ffffff!important;
+        padding: 10px 15px;
+    }
+
+
+    .lawservice {
+    height: auto;
+}
+.court_mob{
+    padding:0;
+    margin-bottom: 15px;
+}
+
+.nav-bar .nav-bar-link ul li a {
+    border-bottom: 1px dashed #fdfdfd;
+}
+
+
+.nav-bar .nav-bar-link ul li a:hover, .nav-bar
+ .nav-bar-link ul li a.color-active, .nav-bar.active .nav-bar-link > ul ul li:hover a {
+    color:#fff;
+}
+
+    .nav-bar .nav-bar-link > ul li:hover > ul {
+    transform: translateY(-10px);
+}
+
+    .sm-img img{
+        height:170px !important; 
+        object-fit:cover;
+    }
+
+.banner h1{
+    font-size:30px;
+}
+
+    .body{
+        overflow-x: hidden;
+    }
+    .active-dark-mode-decision .nav-bar.active .open-nav-bar span{
+        background-color: #FFF;
+    }
+	.active-dark-mode-decision .nav-bar .logo .open-nav-bar:hover span,
+	.active-dark-mode-decision .nav-bar .logo .open-nav-bar.active span{
+		background-color: #C9B38C;
+	}
+	.active-dark-mode-decision .nav-bar .nav-bar-link.active{
+		border-top: 1px solid rgb(255 255 255 / 10%);
+	}
+}
+
+
+
+
+
+@media (min-width: 800px){
+
+    .navi .dropdown:hover>.dropdown-menu {
+        display: block;
+      }
+
+
+      .sm-img img{
+        height:170px !important; 
+        object-fit:cover;
+    }
+
+    #tabnine_servicemodel .custom_modal {
+    min-width: 600px;
+    margin: 30px auto;
+    }
+    
+    .body{
+        overflow-x: hidden;
+    }
+    .phone_self{
+        /* margin-left: 57px !important; */
+        padding-left: 20px !important;
+    }
+}
+
+
+@media (max-width:767px){
+    .bn {
+        margin-top:70px;
+    }
+    .logo-nav img {
+        margin-bottom: 10px;
+    }
+    .navbar-collapse {
+        border-top: 1px solid #ccc;
+    }
+    .advocate-col img {
+        width: 100%;
+        height: 100%;
+    }
+.content-wrapper ul, ol {
+    margin: 0;
+    padding-left:10px;
+}
+      .detail-img{
+        height:200px;
+    }
+
+    .header-owl{
+        margin-top:70px !important;
+    }
+
+   .button-col a {
+    border: 1px solid #fff;
+    color: #333;
+    margin-top: 11px;
+    background: #fff;
+    font-size: 13px;
+    padding: 9px 12px;
+    border-radius: 7px;
+    margin-right: 2px;
+    }
+    .banner h1 {
+    font-size: 21px;
+}
+
+.sm-img img{
+    height:150px !important;
+}
+
+}
+
+
+
+
+
+@media (max-width: 700px){
+    .mobile-mt0{
+        margin-top:5px !important;
+    }
+    .xspadding0{
+        padding:0;
+    }
+
+    .enq {
+        padding: 15px 0px;
+    }
+
+.sm-img {
+    margin-top: 7px;
+}
+
+    .body{
+        overflow-x: hidden;
+    }
+    .scroll-up {
+        position: fixed;
+        z-index: 100;
+        bottom: 95px;
+    }
+    .dark-mode-decision {
+        position: fixed;
+        z-index: 100;
+        bottom: 147px;
+    }
+}
+
+
+@media (max-width:480px){
+
+    .logo-nav img {
+        width: 187px;
+    }
+    .cc1 p {
+        font-size: 16px;
+    }
+    .bn2 a {
+        font-size: 14px;
+    }
+    .bn2 h3{
+        font-size: 23px;
+    }
+    .list-section h5 a {
+        color: #484848;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .copyright p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .aboutt img {
+        height: 276px;
+        object-fit: cover;
+    }
+    .lawimg img {
+        width: 100%;
+        height:165px;
+    }
+    .sm-img img{
+        height:180px !important;
+    }
+
+}

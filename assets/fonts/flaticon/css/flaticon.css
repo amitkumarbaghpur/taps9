@@ -1,0 +1,145 @@
+/*
+Flaticon icon font: Flaticon
+Creation date: 12/10/2020 16:05
+*/
+
+@font-face {
+    font-family: "Flaticon";
+    src: url("../font/Flaticon.html");
+    src: url("../font/Flaticond41dd41d.html?#iefix") format("embedded-opentype"),
+        url("../font/Flaticon-2.html") format("woff2"),
+        url("../font/Flaticon-3.html") format("woff"),
+        url("../font/Flaticon-4.html") format("truetype"),
+        url("../font/Flaticon-5.html#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: "Flaticon";
+        src: url("../font/Flaticon-5.html#Flaticon") format("svg");
+    }
+}
+
+[class^="flaticon-"]:before,
+[class*=" flaticon-"]:before,
+[class^="flaticon-"]:after,
+[class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-style: normal;
+}
+
+.flaticon-fingerprint:before { content: "\f100"; }
+.flaticon-libra:before { 
+    content: url(../../../img/libra-scale-balance-symbol.html); 
+}
+
+.flaticon-courthouse:before { content: "\f102"; }
+.flaticon-newspaper:before { content: "\f103"; }
+.flaticon-gavel:before { 
+    content: url(../../../img/gavel.html); 
+}
+.flaticon-agreement:before { content: "\f105"; }
+.flaticon-law-book:before { 
+    content: url(../../../img/libra.html); 
+}
+.flaticon-jury:before { 
+    content: url(../../../img/jury.html);
+ }
+.flaticon-act:before { 
+    content: url(../../../img/act.html); 
+}
+.flaticon-portfolio:before { 
+    content: url(../../../img/suitcase.html); 
+}
+.flaticon-oath:before { 
+    content: url(../../../img/oath.html); 
+}
+.flaticon-criminal:before { 
+    content: url(../../../img/criminal.html);
+ }
+.flaticon-lawyer:before { 
+    content: url(../../../img/lawyer.html); 
+}
+.flaticon-police-badge:before { content: "\f10d"; }
+.flaticon-books:before { 
+    content: url(../../../img/book.html);
+ }
+.flaticon-writing-tool:before { content: "\f10f"; }
+.flaticon-lawyer-1:before { 
+    content: url(../../../img/lawyer.html); 
+}
+.flaticon-typewriter:before { content: "\f111"; }
+.flaticon-hourglass:before { content: "\f112"; }
+.flaticon-money-bag:before { content: "\f113"; }
+.flaticon-prison:before { content: "\f114"; }
+.flaticon-police:before { content: "\f115"; }
+.flaticon-bullet:before { content: "\f116"; }
+.flaticon-student:before { content: "\f117"; }
+.flaticon-statement:before { content: "\f118"; }
+.flaticon-judge:before { content: "\f119"; }
+.flaticon-siren:before { content: "\f11a"; }
+.flaticon-right-arrow:before {
+     content: url(../../../img/right.png);
+     }
+.flaticon-witness:before { content: "\f11c"; }
+.flaticon-folder:before { 
+    content: url(../../../img/text.html) ; }
+.flaticon-left-arrow:before { content: url(../../../img/left.png); }
+.flaticon-traffic-cone:before { content: "\f11f"; }
+.flaticon-handcuffs:before { content: "\f120"; }
+.flaticon-bars:before { content: "\f121"; }
+.flaticon-padlock:before { content: "\f122"; }
+.flaticon-scroll:before { content: "\f123"; }
+.flaticon-judge-1:before { content: "\f124"; }
+.flaticon-sheriff:before { content: "\f125"; }
+.flaticon-glasses:before { content: "\f126"; }
+.flaticon-prisoner:before { content: "\f127"; }
+.flaticon-footprint:before { content: "\f128"; }
+.flaticon-search:before { content: "\f129"; }
+.flaticon-police-car:before { content: "\f12a"; }
+.flaticon-policeman:before { content: "\f12b"; }
+.flaticon-evidence:before { content: "\f12c"; }
+.flaticon-prison-bus:before { content: "\f12d"; }
+.flaticon-call:before {
+    content: url(../../../img/telephone-call.png);
+    display: inline-block;
+    font: 27px "FontAwesome";
+    vertical-align: middle;
+    padding-right: 10px;
+}
+.flaticon-prison-1:before { content: "\f12f"; }
+.flaticon-send:before { content: "\f130"; }
+.flaticon-detective:before { 
+    content: url(../../../img/detective.html); 
+}
+
+
+
+
+   
+
+.flaticon-globe:before { content: "\f132"; }
+.flaticon-letter:before { content: "\f133"; }
+.flaticon-location:before { 
+    content: url(../../../img/location.png);
+    display: inline-block;
+    font: 35px FontAwesome;
+    vertical-align: middle;
+    padding-right: 10px; 
+}
+.flaticon-safebox:before { content: "\f135"; }
+.flaticon-email:before { 
+    content: url(../../../img/email.png);
+    display: inline-block;
+    font: 35px FontAwesome;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+.flaticon-judge-2:before { content: "\f137"; }
+.flaticon-baton:before { content: "\f138"; }
+.flaticon-home:before { content: "\f139"; }
+.flaticon-quote:before { 
+    content: url(../../../img/left-quote.html);
+ }
