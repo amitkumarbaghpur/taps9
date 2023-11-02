@@ -88,6 +88,8 @@ objForm.elements[i].checked=objForm.check_all.checked;
                                          <th>Name</th>
                                          <th>State</th>
                                          <th>Mobile No</th>
+                                         <th>Experience</th>
+                                         <th>Ratings Point</th>
                                          <th>Photo</th>
                                          <th>Date</th>
                                          <th>Status</th>
@@ -127,6 +129,8 @@ objForm.elements[i].checked=objForm.check_all.checked;
                                         <td> <?=$lawyer_list[$i]['state']?></td>
                                         
                                         <td> <?=$lawyer_list[$i]['phone']?></td> 
+                                        <td> <?=$lawyer_list[$i]['experience']?></td> 
+                                        <td> <?=$lawyer_list[$i]['rating_point']?></td> 
                                         <td><img src="../images/main_img/<?=$lawyer_list[$i]['image']?>" style="height:70px;width:70px;"/></td>
                                         <td><?=date('d-m-Y',strtotime($lawyer_list[$i]['created_at']));?></td>
                                         <td><?php if($lawyer_list[$i]['status']==1) {?> <button type="button" class="btn btn-success" style="background-color: green;">Active</button><?php } else {?><button type="button" class="btn btn-danger" style="background-color: red;">Deactive</button><?php } ?></td>

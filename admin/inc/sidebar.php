@@ -82,38 +82,9 @@
                         <div class="menu-title">Manage Content </div>
                     </a>
                     <ul>  
-                        <li> <a href="add-product.php"><i class="bx bx-right-arrow-alt"></i>Add Content</a>
+                        <li> <a href="add_content.php"><i class="bx bx-right-arrow-alt"></i>Add Content</a>
                         </li>
-                         <li> <a href="manage-product.php"><i class="bx bx-right-arrow-alt"></i>Content List</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="bx bx-grid-alt"></i>
-                        </div>
-                        <div class="menu-title">Manage Services </div>
-                    </a>
-                    <ul>  
-                        <li> <a href="add-product.php"><i class="bx bx-right-arrow-alt"></i>Add Services</a>
-                        </li>
-                         <li> <a href="manage-product.php"><i class="bx bx-right-arrow-alt"></i>Services List</a>
-                        </li>
-                    </ul>
-                </li>
-
-                
-                <li>
-                    <a class="has-arrow" href="javascript:;">
-                        <div class="parent-icon"><i class="bx bx-grid-alt"></i>
-                        </div>
-                        <div class="menu-title">Manage Content </div>
-                    </a>
-                    <ul>  
-                        <li> <a href="add-product.php"><i class="bx bx-right-arrow-alt"></i>Add Content</a>
-                        </li>
-                         <li> <a href="manage-product.php"><i class="bx bx-right-arrow-alt"></i>Content List</a>
+                         <li> <a href="manage_content.php"><i class="bx bx-right-arrow-alt"></i>Content List</a>
                         </li>
                     </ul>
                 </li>
@@ -125,12 +96,13 @@
                         <div class="menu-title">Manage Services </div>
                     </a>
                     <ul>  
-                        <li> <a href="add-product.php"><i class="bx bx-right-arrow-alt"></i>Add Services</a>
+                        <li> <a href="add_service.php"><i class="bx bx-right-arrow-alt"></i>Add Services</a>
                         </li>
-                         <li> <a href="manage-product.php"><i class="bx bx-right-arrow-alt"></i>Services List</a>
+                         <li> <a href="manage_service.php"><i class="bx bx-right-arrow-alt"></i>Services List</a>
                         </li>
                     </ul>
                 </li>
+
 
                 <li>
                     <a class="has-arrow" href="javascript:;">
@@ -139,9 +111,9 @@
                         <div class="menu-title">Manage Blog </div>
                     </a>
                     <ul>  
-                        <li> <a href="add-product.php"><i class="bx bx-right-arrow-alt"></i>Add Blog</a>
+                        <li> <a href="add_blog.php"><i class="bx bx-right-arrow-alt"></i>Add Blog</a>
                         </li>
-                         <li> <a href="manage-product.php"><i class="bx bx-right-arrow-alt"></i>Blog List</a>
+                         <li> <a href="manage_blog.php"><i class="bx bx-right-arrow-alt"></i>Blog List</a>
                         </li>
                     </ul>
                 </li>

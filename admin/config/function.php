@@ -112,7 +112,7 @@ $db_config = new db_config();
       	$sql = $this->con->query("UPDATE $tbl set status='1' $where");
       	if($sql>0)
       	{
-      		$_SESSION['total_data']=$total_row.' Rows Actived Successfully';
+      		$_SESSION['msg']=$total_row.' Rows Actived Successfully';
       		header('location:'.$page);
 
       	}
@@ -124,7 +124,7 @@ $db_config = new db_config();
       	$sql = $this->con->query("UPDATE $tbl set status='0' $where");
       	if($sql>0)
       	{
-      		$_SESSION['total_data']=$total_row.' Rows Deactived Successfully';
+      		$_SESSION['msg']=$total_row.' Rows Deactived Successfully';
       		header('location:'.$page);
 
       	}
@@ -134,7 +134,7 @@ $db_config = new db_config();
       	$sql = $this->con->query("DELETE FROM $tbl $where");
       	if($sql>0)
       	{
-      		$_SESSION['total_data']=$total_row.' Rows Deleted Successfully';
+      		$_SESSION['msg']=$total_row.' Rows Deleted Successfully';
       		header('location:'.$page);
 
       	}
@@ -147,7 +147,7 @@ public function delete_image($image_name,$sql,$page)
            $path="../images/main_img/".$image_name;
            unlink($path);
 
-          $_SESSION['total_data']=$total_row.' Images Removed Successfully';
+          $_SESSION['msg']=$total_row.' Images Removed Successfully';
           header('location:'.$page);
 
         }
@@ -491,7 +491,7 @@ alert('This account is already activated')</script>";
         
              $this->portal_log($id,"$title - Registration Successfull");
             $this->portal_log($id,"$title - Updated");
-            $_SESSION['total_data']='Data Updated Successfully';
+            $_SESSION['msg']='Data Updated Successfully';
             // header('location:edit-profile.php');
         
            echo "<script>alert('Your profile has been update successfully.');
@@ -582,7 +582,7 @@ alert('This account is already activated')</script>";
           if($sql>0)
           {
             $this->portal_log($id,"$title - Banner Updated");
-            $_SESSION['total_data']='Data Updated Successfully';
+            $_SESSION['msg']='Data Updated Successfully';
             header('location:manage-banner.php');
           }
           else
@@ -678,7 +678,7 @@ alert('This account is already activated')</script>";
           if($sql)
           {
             $this->portal_log($id,"$title - Updated");
-            $_SESSION['total_data']='Data Updated Successfully';
+            $_SESSION['msg']='Data Updated Successfully';
             header('location:manage-lawyer.php');
           }
           else
@@ -696,7 +696,7 @@ alert('This account is already activated')</script>";
         {
            
 
-          $_SESSION['total_data']=$total_row.' Images Removed Successfully';
+          $_SESSION['msg']=$total_row.' Images Removed Successfully';
            unset($_SESSION['error']);
          $_SESSION['msg']='Image Delete Success';
       header('location:add-product.php?edit='.$product_id);
@@ -937,7 +937,7 @@ alert('This account is already activated')</script>";
           if($sql>0)
           {
             $this->portal_log($id,"$city_name - city Updated");
-            $_SESSION['total_data']='Data Updated Successfully';
+            $_SESSION['msg']='Data Updated Successfully';
             header('location:add-coupon-code.php');
           }
           else
@@ -1714,7 +1714,7 @@ echo "</script>";
         $sql = $this->con->query("UPDATE $tbl set status='1' $where");
         if($sql>0)
         {
-          $_SESSION['total_data']=$total_row.' Rows Actived Successfully';
+          $_SESSION['msg']=$total_row.' Rows Actived Successfully';
           header('location:'.$page);
 
         }
@@ -1726,7 +1726,7 @@ echo "</script>";
         $sql = $this->con->query("UPDATE $tbl set status='0' $where");
         if($sql>0)
         {
-          $_SESSION['total_data']=$total_row.' Rows Deactived Successfully';
+          $_SESSION['msg']=$total_row.' Rows Deactived Successfully';
           header('location:'.$page);
 
         }
@@ -1739,7 +1739,7 @@ echo "</script>";
 
         if($sql>0)
         {
-          $_SESSION['total_data']=$total_row.' Rows Deleted Successfully';
+          $_SESSION['msg']=$total_row.' Rows Deleted Successfully';
           header('location:'.$page);
         }
 
@@ -1809,7 +1809,7 @@ echo "</script>";
           if($sql)
           {
             $this->portal_log($id,"$title - Updated");
-            $_SESSION['total_data']='Data Updated Successfully';
+            $_SESSION['msg']='Data Updated Successfully';
             header('location:manage_gallery.php');
           }
           else
@@ -1817,11 +1817,358 @@ echo "</script>";
             $_SESSIONP['error']='Data Not Updated';
           }
       }
+      
 
 
+      public function add_content($info)
+      {
+        $find = array(' ','+',',','_','@','#','$','%','^','&','*','(',')','{','}','[',']',':',';','/');
+        $replace = array('-','-','-','-','-','-','-','-','-','and','-','-','-','-','-','-','-','-','-','-');
+        $p_id = $info['p_id'];
+        $page = mysqli_real_escape_string($this->con,trim($info['page']));
+        $p_keywords = mysqli_real_escape_string($this->con,trim($info['p_keywords']));
+        $p_title = mysqli_real_escape_string($this->con,trim($info['p_title']));
+        $url = str_replace($find,$replace,strtolower($page));
+        $p_description = mysqli_real_escape_string($this->con,trim($info['p_description']));
+        $content = mysqli_real_escape_string($this->con,trim($info['content']));
+        $exist_cotent = $this->con->query("select * from tbl_content where page='".$page."'");
+        if($exist_cotent->num_rows>0)
+        {
+          unset($_SESSION['msg']);
+          $_SESSION['error']='This Page is already exist';
+          echo "<script>alert('This Page is already exist');</script>
+          window.location.href='add_content.php';";
+       
+        }
+        else
+        {
+        $image = "";
+        if(@$_FILES['image']['name'] != '') 
+        {
+        @$image = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["image"]["name"]));
+        $path="../images/content/".$image;
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
+        }
+        $logo = "";
+        if(@$_FILES['logo']['name'] != '') 
+        {
+        @$logo = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["logo"]["name"]));
+        $path="../images/main_img/".$logo;
+        move_uploaded_file($_FILES['logo']['tmp_name'], $path);
+        }
+      $sql = $this->con->query("INSERT INTO tbl_content(`page`,`p_id`,`p_title`,`slug`,`p_description`,`p_keywords`,`content`,`image`,`logo1`,`created_at`) values 
+     ('".$page."','".$p_id."','".$p_title."','".$url."','".$p_description."','".$p_keywords."','".$content."','".$image."','".$logo."',now())");
+        if($sql)
+        {
+        $this->portal_log($id,"$title - Added");
+        unset($_SESSION['error']);
+        $_SESSION['msg']='Data Inserted Successfully';
+        header('location:add_content.php');
+
+        }
+        else
+        {
+        unset($_SESSION['msg']);  
+        $_SESSION['msg']='Something Went Wrong';
+        header('location:add_cotent.php');
+        }
+      }
+         
+      }
+
+      public function update_content($info,$id)
+      {
+        $find = array(' ','+',',','_','@','#','$','%','^','&','*','(',')','{','}','[',']',':',';','/');
+        $replace = array('-','-','-','-','-','-','-','-','-','and','-','-','-','-','-','-','-','-','-','-');
+        $p_id = $info['p_id'];
+        $page = mysqli_real_escape_string($this->con,trim($info['page']));
+        $p_title = mysqli_real_escape_string($this->con,trim($info['p_title']));
+        $url = str_replace($find,$replace,strtolower($page));
+        $p_description = mysqli_real_escape_string($this->con,trim($info['p_description']));
+        $p_keywords = mysqli_real_escape_string($this->con,trim($info['p_keywords']));
+        $content = mysqli_real_escape_string($this->con,trim($info['content']));
+        $exist_cotent = $this->con->query("select * from tbl_content where page='".$page."' && id!='".$id."' && status!=3");
+        if($exist_cotent->num_rows>0)
+        {
+          unset($_SESSION['msg']);
+          $_SESSION['error']='This Page is already exist';
+          echo "<script>alert('This Page is already exist');</script>
+          window.location.href='add_content.php';";
+       
+        }
+        else
+        {
+        $image = "";
+        if(@$_FILES['image']['name'] != '') 
+        {
+        @$image = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["image"]["name"]));
+        $path="../images/content/".$image;
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
+        }
+        $logo = "";
+        if(@$_FILES['logo']['name'] != '') 
+        {
+        @$logo = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["logo"]["name"]));
+        $path="../images/main_img/".$logo;
+        move_uploaded_file($_FILES['logo']['tmp_name'], $path);
+        }
+          $query = "update tbl_content set `p_id`='".$p_id."',`page`='".$page."',`p_title`='".$p_title."',`slug`='".$url."',
+          `p_description`='".$p_description."',`p_keywords`='".$p_keywords."',`content`='".$content."' ";
+          if($image!='')
+          {
+            $query.=",`image`='".$image."' ";
+          }
+          if($logo!='')
+          {
+            $query.=",`logo1`='".$logo."' ";
+          }
+          $query.=",`update_at`=now() where `id`='".$id."'";
+          $sql = $this->con->query($query);
+          if($sql)
+          {
+            $this->portal_log($id,"$title - Updated");
+            $_SESSION['msg']='Data Updated Successfully';
+            header('location:manage_content.php');
+          }
+          else
+          {
+            $_SESSION['error']='Data Not Updated';
+          }
+        }
+      }
 
 
+      public function add_service($info)
+      {
+        $find = array(' ','+',',','_','@','#','$','%','^','&','*','(',')','{','}','[',']',':',';','/');
+        $replace = array('-','-','-','-','-','-','-','-','-','and','-','-','-','-','-','-','-','-','-','-');
+        $p_id = $info['p_id'];
+        $p_keywords = mysqli_real_escape_string($this->con,trim($info['p_keywords']));
+        $p_title = mysqli_real_escape_string($this->con,trim($info['p_title']));
+        $url = str_replace($find,$replace,strtolower($p_title));
+        $p_description = mysqli_real_escape_string($this->con,trim($info['p_description']));
+        $content = mysqli_real_escape_string($this->con,trim($info['content']));
+        $exist_cotent = $this->con->query("select * from tbl_services where page='".$page."'");
+        if($exist_cotent->num_rows>0)
+        {
+          unset($_SESSION['msg']);
+          $_SESSION['error']='This Service is already exist';
+          echo "<script>alert('This Service is already exist');</script>
+          window.location.href='add_service.php';";
+       
+        }
+        else
+        {
+        $image = "";
+        if(@$_FILES['image']['name'] != '') 
+        {
+        @$image = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["image"]["name"]));
+        $path="../images/content/".$image;
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
+        }
+        $logo = "";
+        if(@$_FILES['logo']['name'] != '') 
+        {
+        @$logo = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["logo"]["name"]));
+        $path="../images/main_img/".$logo;
+        move_uploaded_file($_FILES['logo']['tmp_name'], $path);
+        }
+      $sql = $this->con->query("INSERT INTO tbl_services(`p_id`,`p_title`,`slug`,`p_description`,`p_keywords`,`content`,`image`,`logo1`,`created_at`) values 
+     ('".$p_id."','".$p_title."','".$url."','".$p_description."','".$p_keywords."','".$content."','".$image."','".$logo."',now())");
+        if($sql)
+        {
+        $this->portal_log($id,"$title - Added");
+        unset($_SESSION['error']);
+        $_SESSION['msg']='Data Inserted Successfully';
+        header('location:add_service.php');
 
+        }
+        else
+        {
+        unset($_SESSION['msg']);  
+        $_SESSION['msg']='Something Went Wrong';
+        header('location:add_service.php');
+        }
+      }
+         
+      }
+
+      public function update_service($info,$id)
+      {
+        $find = array(' ','+',',','_','@','#','$','%','^','&','*','(',')','{','}','[',']',':',';','/');
+        $replace = array('-','-','-','-','-','-','-','-','-','and','-','-','-','-','-','-','-','-','-','-');
+        $p_id = $info['p_id'];
+        $p_title = mysqli_real_escape_string($this->con,trim($info['p_title']));
+        $url = str_replace($find,$replace,strtolower($p_title));
+        $p_description = mysqli_real_escape_string($this->con,trim($info['p_description']));
+        $p_keywords = mysqli_real_escape_string($this->con,trim($info['p_keywords']));
+        $content = mysqli_real_escape_string($this->con,trim($info['content']));
+        $exist_cotent = $this->con->query("select * from tbl_services where page='".$page."' && id!='".$id."' && status!=3");
+        if($exist_cotent->num_rows>0)
+        {
+          unset($_SESSION['msg']);
+          $_SESSION['error']='This Service is already exist';
+          echo "<script>alert('This Service is already exist');</script>
+          window.location.href='add_service.php';";
+       
+        }
+        else
+        {
+        $image = "";
+        if(@$_FILES['image']['name'] != '') 
+        {
+        @$image = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["image"]["name"]));
+        $path="../images/content/".$image;
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
+        }
+        $logo = "";
+        if(@$_FILES['logo']['name'] != '') 
+        {
+        @$logo = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["logo"]["name"]));
+        $path="../images/main_img/".$logo;
+        move_uploaded_file($_FILES['logo']['tmp_name'], $path);
+        }
+          $query = "update tbl_services set `page`='".$page."',`p_title`='".$p_title."',`slug`='".$url."',
+          `p_description`='".$p_description."',`p_keywords`='".$p_keywords."',`content`='".$content."' ";
+          if($image!='')
+          {
+            $query.=",`image`='".$image."' ";
+          }
+          if($logo!='')
+          {
+            $query.=",`logo1`='".$logo."' ";
+          }
+          $query.=",`update_at`=now() where `id`='".$id."'";
+          $sql = $this->con->query($query);
+          if($sql)
+          {
+            $this->portal_log($id,"$title - Updated");
+            $_SESSION['msg']='Data Updated Successfully';
+            header('location:manage_service.php');
+          }
+          else
+          {
+            $_SESSION['error']='Data Not Updated';
+          }
+        }
+      }
+
+
+      public function add_blog($info)
+      {
+        $find = array(' ','+',',','_','@','#','$','%','^','&','*','(',')','{','}','[',']',':',';','/');
+        $replace = array('-','-','-','-','-','-','-','-','-','and','-','-','-','-','-','-','-','-','-','-');
+        $p_keywords = mysqli_real_escape_string($this->con,trim($info['p_keywords']));
+        $page = mysqli_real_escape_string($this->con,trim($info['page']));
+        $p_title = mysqli_real_escape_string($this->con,trim($info['p_title']));
+        $url = str_replace($find,$replace,strtolower($page));
+        $p_description = mysqli_real_escape_string($this->con,trim($info['p_description']));
+        $content = mysqli_real_escape_string($this->con,trim($info['content']));
+        $short_content = mysqli_real_escape_string($this->con,trim($info['short_content']));
+        $exist_cotent = $this->con->query("select * from tbl_blog where p_title='".$p_title."'");
+        if($exist_cotent->num_rows>0)
+        {
+          unset($_SESSION['msg']);
+          $_SESSION['error']='This Blog is already exist';
+          echo "<script>alert('This Blog is already exist');</script>
+          window.location.href='add_blog.php';";
+       
+        }
+        else
+        {
+        $image = "";
+        if(@$_FILES['image']['name'] != '') 
+        {
+        @$image = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["image"]["name"]));
+        $path="../images/content/".$image;
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
+        }
+        $logo = "";
+        if(@$_FILES['logo']['name'] != '') 
+        {
+        @$logo = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["logo"]["name"]));
+        $path="../images/main_img/".$logo;
+        move_uploaded_file($_FILES['logo']['tmp_name'], $path);
+        }
+      $sql = $this->con->query("INSERT INTO tbl_blog(`page`,`p_title`,`slug`,`p_description`,`p_keywords`,`short_content`,`content`,`image`,`logo1`,`created_at`) values 
+     ('".$page."','".$p_title."','".$url."','".$p_description."','".$p_keywords."','".$short_content."','".$content."','".$image."','".$logo."',now())");
+        if($sql)
+        {
+        $this->portal_log($id,"$title - Added");
+        unset($_SESSION['error']);
+        $_SESSION['msg']='Data Inserted Successfully';
+        header('location:add_blog.php');
+
+        }
+        else
+        {
+        unset($_SESSION['msg']);  
+        $_SESSION['msg']='Something Went Wrong';
+        header('location:add_blog.php');
+        }
+      }
+         
+      }
+
+      public function update_blog($info,$id)
+      {
+        $find = array(' ','+',',','_','@','#','$','%','^','&','*','(',')','{','}','[',']',':',';','/');
+        $replace = array('-','-','-','-','-','-','-','-','-','and','-','-','-','-','-','-','-','-','-','-');
+        $p_id = $info['p_id'];
+        $p_title = mysqli_real_escape_string($this->con,trim($info['p_title']));
+        $url = str_replace($find,$replace,strtolower($page));
+        $p_description = mysqli_real_escape_string($this->con,trim($info['p_description']));
+        $p_keywords = mysqli_real_escape_string($this->con,trim($info['p_keywords']));
+        $content = mysqli_real_escape_string($this->con,trim($info['content']));
+        $exist_cotent = $this->con->query("select * from tbl_services where page='".$page."' && id!='".$id."' && status!=3");
+        if($exist_cotent->num_rows>0)
+        {
+          unset($_SESSION['msg']);
+          $_SESSION['error']='This Service is already exist';
+          echo "<script>alert('This Service is already exist');</script>
+          window.location.href='add_service.php';";
+       
+        }
+        else
+        {
+        $image = "";
+        if(@$_FILES['image']['name'] != '') 
+        {
+        @$image = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["image"]["name"]));
+        $path="../images/content/".$image;
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
+        }
+        $logo = "";
+        if(@$_FILES['logo']['name'] != '') 
+        {
+        @$logo = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["logo"]["name"]));
+        $path="../images/main_img/".$logo;
+        move_uploaded_file($_FILES['logo']['tmp_name'], $path);
+        }
+          $query = "update tbl_services set `page`='".$page."',`p_title`='".$p_title."',`slug`='".$url."',
+          `p_description`='".$p_description."',`p_keywords`='".$p_keywords."',`content`='".$content."' ";
+          if($image!='')
+          {
+            $query.=",`image`='".$image."' ";
+          }
+          if($logo!='')
+          {
+            $query.=",`logo1`='".$logo."' ";
+          }
+          $query.=",`update_at`=now() where `id`='".$id."'";
+          $sql = $this->con->query($query);
+          if($sql)
+          {
+            $this->portal_log($id,"$title - Updated");
+            $_SESSION['msg']='Data Updated Successfully';
+            header('location:manage_service.php');
+          }
+          else
+          {
+            $_SESSION['error']='Data Not Updated';
+          }
+        }
+      }
 }
 
 
