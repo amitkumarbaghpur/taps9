@@ -8,7 +8,7 @@
                   <div class="container">
                      <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-4 sm-img">
-                           <img src="assets/img/b4.jpg">
+                           <img src="<?=$baseurl?>/assets/img/b4.jpg">
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-8">
                            <div class="banner">
@@ -22,7 +22,7 @@
                                  </ul>
                                  <div class="button-col">
                                     <a href="tel:+91-9873628941" class="btn">Tab here to call us</a>
-                                    <a href="find-lawyer.html" class="btn find-bg">Find a Lawyer</a>
+                                    <a href="<?=$baseurl?>/find-lawyer" class="btn find-bg">Find a Lawyer</a>
                                  </div>
                               </div>
                            </div>
@@ -52,7 +52,7 @@
                                  </ul>
                                  <div class="button-col">
                                     <a href="tel:+91-9873628941" class="btn">Tab here to call us</a>
-                                    <a href="find-lawyer.html" class="btn find-bg">Find a Lawyer</a>
+                                    <a href="find-lawyer" class="btn find-bg">Find a Lawyer</a>
                                  </div>
                               </div>
                            </div>
@@ -82,7 +82,7 @@
                                  </ul>
                                  <div class="button-col">
                                     <a href="tel:+91-9873628941" class="btn">Tab here to call us</a>
-                                    <a href="find-lawyer.html" class="btn find-bg">Find a Lawyer</a>
+                                    <a href="find-lawyer" class="btn find-bg">Find a Lawyer</a>
                                  </div>
                               </div>
                            </div>
@@ -98,54 +98,23 @@
       <div class="container">
          <h2 class="text-center our-ser">Our Services</h2>
          <div class="row">
+         <?php
+             $content_list = $taps9->self_query("select * from tbl_content where p_id=3 order by id asc");
+            if(count($content_list)>0)    
+            {            
+            for($i=0;$i<count($content_list);$i++)
+                            {
+                                
+
+                       ?>
             <div class="col-md-4 col-lg-3 col-sm-6 our_ser">
-               <a href="family-law.html"><img src="assets/img/cc1.jpg"></a>
+               <a href="<?=$baseurl?>/our-services/<?=$content_list[$i]['slug']?>"><img src="<?=$baseurl?>/images/content/<?=$content_list[$i]['image']?>"></a>
                <h6>
-                  <a href="family-law.html">Family Law</a>
+                  <a href="<?=$baseurl?>/our-services/<?=$content_list[$i]['slug']?>"><?=$content_list[$i]['page']?></a>
                </h6>
             </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 our_ser">
-               <img src="assets/img/op3.jpg">
-               <h6>
-                  <a href="#">Arbitration</a>
-               </h6>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 our_ser">
-               <img src="assets/img/cc3.jpg">
-               <h6>
-                  <a href="#">Legal Notices</a>
-               </h6>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 our_ser">
-               <img src="assets/img/cc3.jpg">
-               <h6>
-                  <a href="#">Caveat Petitions</a>
-               </h6>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 our_ser">
-               <img src="assets/img/cc2.jpg">
-               <h6>
-                  <a href="#">Transfer Petition in the Supreme Court of India </a>
-               </h6>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 our_ser">
-               <img src="assets/img/op3.jpg">
-               <h6>
-                  <a href="#">Curative Petition- Supreme Court of India </a>
-               </h6>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 our_ser">
-               <img src="assets/img/cc2.jpg">
-               <h6>
-                  <a href="#">Law of Bails-Anticipatory Bails, Regular Bails </a>
-               </h6>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 our_ser">
-               <img src="assets/img/cc2.jpg">
-               <h6>
-                  <a href="#">Special Leave Petition</a>
-               </h6>
-            </div>
+            <?php } } ?>
+            
          </div>
       </div>
       <div>
@@ -195,17 +164,17 @@
                <div class="row">
                   <div class="col-md-3">
                      <div class="ssu">
-                        <input type="text" placeholder="Full Name">
+                        <input type="text" placeholder="Full Name" name="name" required>
                      </div>
                   </div>
                   <div class="col-md-3">
                      <div class="ssu">
-                        <input type="text" placeholder="Email">
+                        <input type="text" placeholder="Email" name="email">
                      </div>
                   </div>
                   <div class="col-md-3">
                      <div class="ssu">
-                        <input type="text" placeholder="Phone">
+                        <input type="text" placeholder="Phone" name="phone" required>
                      </div>
                   </div>
                   <div class="col-md-3">
@@ -232,15 +201,15 @@
                      </div>
                      <div class="modal-body family-law">
                       <div class="lawimg">
-                      <a href="family-law.html"><img src="assets/img/law-family.jpg"></a>
+                      <a href="<?=$baseurl?>/our-services/family-law"><img src="<?=$baseurl?>/assets/img/law-family.jpg"></a>
                      </div>
 
                        <div class="content-law">
-                        <h6> <a href="family-law.html">Mutual Consent Divorce</a></h6>
+                        <h6> <a href="<?=$baseurl?>/our-services/family-law"><?=$content_list[0]['p_title']?></a></h6>
                         <p>
-                          Thank you for reading this post, dont forget to subscribe! is an extremely simple process , however as the name suggests both the parties should consent to it before filing...
+                        <?=$content_list[0]['p_description']?>
                         </p>
-                        <a href="family-law.html" class="MoreBtn">READ MORE</a>
+                        <a href="<?=$baseurl?>/our-services/family-law" class="MoreBtn">READ MORE</a>
                        </div>
                      </div>
                   </div>

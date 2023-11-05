@@ -1,7 +1,7 @@
 <?php 
 include('admin/config/function.php');
-$manage = new taps9();
-$baseurl = $manage->base_url();
+$taps9 = new taps9();
+$baseurl = $taps9->base_url();
 ?>
 <!doctype html>
 <html lang="en">
@@ -46,7 +46,7 @@ $baseurl = $manage->base_url();
                <div class="nav-top-box d-flex align-items-center justify-content-between">
                   <ul class="info">
                      <li><span><i class="fa fa-envelope"></i> :</span> <a
-                        href="mailto:taps9legalservices@gmail.com">taps9legalservices@gmail.com</a></li>
+                     href="mailto:taps9legalservices@gmail.com">taps9legalservices@gmail.com</a></li>
                      <li class="phone_self"><span> <i class="fa fa-phone"></i> :</span>
                         <a href="tel:91-9873628941">+91-9873628941 </a>
                      </li>
@@ -69,30 +69,27 @@ $baseurl = $manage->base_url();
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
+               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active"><a class="nav-link" href="<?=$baseurl?>/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?=$baseurl?>/about-us">About us</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?=$baseurl?>/family-law">Family Law</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?=$baseurl?>/our-services/family-law">Family Law</a></li>
                
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      Our Services
                   </a>
+                  
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Family Law</a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Arbitration</a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Legal Notices</a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Caveat Petitions</a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Transfer Petition in the Supreme Court of India </a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Curative Petition- Supreme Court of India </a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Law of Bails-Anticipatory Bails, Regular Bails </a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Special Leave Petition</a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Caveat Petition </a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Appeals</a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Review Petition  </a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Special Leave Petition </a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Transfer Petition  </a>
-                    <a class="dropdown-item" href="<?=$baseurl?>/family-law">Advocate and Legal Consultant</a>
+                  <?php
+                  $content_list_menu = $taps9->self_query("select * from tbl_content where p_id=3 order by id asc");
+                 if(count($content_list_menu)>0)    
+                 {     
+                 for($i=0;$i<count($content_list_menu);$i++)
+                                 {
+                            ?>
+                    <a class="dropdown-item" href="<?=$baseurl?>/our-services/<?=$content_list_menu[$i]['slug']?>"><?=$content_list_menu[$i]['page']?></a>
+      
+                  <?php } } ?>
                   </div>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="<?=$baseurl?>/find-lawyer">Find a Lawyer</a></li>
@@ -103,4 +100,3 @@ $baseurl = $manage->base_url();
          </div>
           </nav>
       </header>
-

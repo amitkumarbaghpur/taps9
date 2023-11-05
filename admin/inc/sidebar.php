@@ -125,9 +125,9 @@
                         <div class="menu-title">Manage Testimonial </div>
                     </a>
                     <ul>  
-                        <li> <a href="add-product.php"><i class="bx bx-right-arrow-alt"></i>Add Testimonial</a>
+                        <li> <a href="add_testimonial.php"><i class="bx bx-right-arrow-alt"></i>Add Testimonial</a>
                         </li>
-                         <li> <a href="manage-product.php"><i class="bx bx-right-arrow-alt"></i>Testimonial List</a>
+                         <li> <a href="manage_testimonial.php"><i class="bx bx-right-arrow-alt"></i>Testimonial List</a>
                         </li>
                     </ul>
                 </li>

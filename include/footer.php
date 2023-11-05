@@ -60,10 +60,9 @@
                   </ul>
                   <div class="logo">
                      <ul>
-                        <li><a target="_blank" href="#"><i class="fa fa-facebook-f"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook-f"></i></a></li>
+                        <li><a target="_blank" href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                        <li><a target="_blank" href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
                      </ul>
                   </div>
                </div>

@@ -1,12 +1,18 @@
-<?php include('include/header.php'); ?>
+<?php 
+include('include/header.php'); 
+$page_exp = explode('/',$_SERVER['REQUEST_URI']);
+$url = end($page_exp);
+$blog_detail = $taps9->self_query("select * from tbl_blog where slug='".$url."' &&  status=1");
+$i=0;
+?>
 
       <div class="container-fluid blogsbg" id="page">
          <div class="container">
             <div class="bn2">
-               <h3>Curative Petition- Supreme Court of India</h3>
+               <h3><?=$blog_detail[$i]['p_title']?></h3>
                <p>
-                  <a href="index.html">Home &nbsp; </a> / &nbsp;
-                  <a href="blog.html" style="color: #68c6ff; font-weight: normal">Curative Petition- Supreme Court of India</a> 
+                  <a href="<?=$baseurl?>">Home &nbsp; </a> / &nbsp;
+                  <a href="<?=$baseurl?>/blog" style="color: #68c6ff; font-weight: normal"><?=$blog_detail[$i]['page']?></a> 
                </p>
             </div>
          </div>
@@ -20,9 +26,9 @@
                <div class="bg-blog all_details">
                <div class="blog-text">
                   <h2>
-                     Curative Petition- Supreme Court of India</h2>
+                  <?=$blog_detail[$i]['page']?></h2>
                   <p> 
-                     A curative petition is a legal remedy available in certain jurisdictions, including India. It is a final opportunity for a petitioner to seek a review of a decision issued by the Supreme Court after exhausting all other legal remedies. A curative petition can be filed in cases where there is a violation of principles of natural justice or if new evidence is discovered that could affect the outcome of the case. The petition is heard by a larger bench of judges, and if it is successful, the Supreme Court may reconsider its previous decision. The concept of a curative petition aims to rectify gross miscarriages of justice and uphold the principles of fairness and equity in the legal system.
+                  <?=$blog_detail[$i]['content']?>
                   </p>
                </div>
                </div>

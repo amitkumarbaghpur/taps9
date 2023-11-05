@@ -517,7 +517,7 @@ margin: 10px 0px;
 }
 
 .bn{
-  background-image: url(../img/banner.jpg);
+  /* background-image: url(../img/banner.jpg); */
   height:240px;
   background-size:cover;
   background-repeat:no-repeat;

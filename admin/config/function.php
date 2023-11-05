@@ -2169,6 +2169,69 @@ echo "</script>";
           }
         }
       }
+
+      public function add_testimonial($info)
+      {
+        
+        $name = mysqli_real_escape_string($this->con,trim($info['name']));
+        $position = mysqli_real_escape_string($this->con,trim($info['position']));
+        $des = mysqli_real_escape_string($this->con,trim($info['des']));
+        $image = "";
+        if(@$_FILES['image']['name'] != '') 
+        {
+        @$image = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["image"]["name"]));
+        $path="../images/content/".$image;
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
+        }
+      $sql = $this->con->query("INSERT INTO tbl_testimonial(`name`,`position`,`des`,`image`,`created_at`) values 
+     ('".$name."','".$position."','".$des."','".$image."',now())");
+        if($sql)
+        {
+        $this->portal_log($id,"$title - Added");
+        unset($_SESSION['error']);
+        $_SESSION['msg']='Data Inserted Successfully';
+        header('location:add_testimonial.php');
+
+        }
+        else
+        {
+        unset($_SESSION['msg']);  
+        $_SESSION['msg']='Something Went Wrong';
+        header('location:add_testimonial.php');
+        }
+         
+      }
+
+      public function update_testimonial($info,$id)
+      {
+        $name = mysqli_real_escape_string($this->con,trim($info['name']));
+        $position = mysqli_real_escape_string($this->con,trim($info['position']));
+        $des = mysqli_real_escape_string($this->con,trim($info['des']));
+        $image = "";
+        if(@$_FILES['image']['name'] != '') 
+        {
+        @$image = rand() . '_' .str_replace($find,$replace,strtolower($_FILES["image"]["name"]));
+        $path="../images/content/".$image;
+        move_uploaded_file($_FILES['image']['tmp_name'], $path);
+        }
+          $query = "update tbl_testimonial set `name`='".$name."',`position`='".$position."',`des`='".$des."' ";
+          if($image!='')
+          {
+            $query.=",`image`='".$image."' ";
+          }
+          $query.=",`update_at`=now() where `id`='".$id."'";
+          $sql = $this->con->query($query);
+          if($sql)
+          {
+            $this->portal_log($id,"$title - Updated");
+            $_SESSION['msg']='Data Updated Successfully';
+            header('location:manage_testimonial.php');
+          }
+          else
+          {
+            $_SESSION['error']='Data Not Updated';
+          }
+      }
 }
 
 
